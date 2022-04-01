@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Учись банковскому делу вместе с ПУМБ :)</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="main-wrapper-container">
+    <div class="container">
+      <div class="wrapper-container">
+        <div class="left-container">
+          <div class="main-container">
+            <div class="main-header">
+              <div class="sound-mute">
+                <img id="sound" src="photos/offSound.png">
+              </div>
+              <div class="main-header-content">
+                <div class="header-content-title">
+                  <h1>Учись вместе с ПУМБ!</h1>
+                </div>
+                <div class="header-content-text">
+                  <p id="span-start">Нажми на логотип, чтобы начать игру!</p>
+                </div>
+              </div>
+              <div class="main-header-content-right"></div>
+            </div>
+            <div class="main-content">
+              <div class="main-additional main-additional-1"></div>
+              <div class="main-logo">
+                <img id="logo" src="photos/logo.png">
+              </div>
+              <div class="main-additional main-additional-2"></div>
+            </div>
+            <div class="main-footer">
+              <div class="main-select-list">
+                <!-- <label class="main-label-select" for="topic-select">ВЫБЕРИ ЯЗЫК
+                <select class="select" name="language-select" id="language-select">
+                  <option lang="ru" value="ru">Русский</option>
+                  <option lang="ua" value="ua">Українська</option>
+                  <option lang="en" value="en">English</option>
+                </select>
+                </label><br> -->
+                <label class="main-label-select" for="topic-select">ВЫБЕРИ ТЕМУ ДЛЯ ИГРЫ
+                  <select class="select" name="topic-select" id="topic-select">
+                    <!-- <option value="openAccountQuestions">Открытие счета</option> -->
+                    <option value="currencyQuestions">Пока не придумал)))</option>
+                    <option value="finansialDepartmentQuestions" selected>Общие вопросы</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="footer-container">
+            <div class="footer-question-button">
+              <div class="question-button">
+                <button id="questionButton" class="question main-button" disabled>Нажми на логотип, чтобы начать
+                  игру...</button>
+              </div>
+            </div>
+            <div class="footer-answer-buttons">
+              <div class="answer-button">
+                <span>a:</span>
+                <button id="answer-1" class="answer main-button">Нажми на логотип, чтобы начать
+                  игру...</button>
+              </div>
+              <div class="answer-button">
+                <span>b:</span>
+                <button id="answer-2" class="answer main-button">Нажми на логотип, чтобы начать
+                  игру...</button>
+              </div>
+              <div class="answer-button">
+                <span>c:</span>
+                <button id="answer-3" class="answer main-button">Нажми на логотип, чтобы начать
+                  игру...</button>
+              </div>
+              <div class="answer-button">
+                <span>d:</span>
+                <button id="answer-4" class="answer main-button">Нажми на логотип, чтобы начать
+                  игру...</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right-container">
+          <div class="right-header">
+            <img class="img-buttons" id="img50-50" src="photos/img_buttons/divide.png">
+            <img class="img-buttons" id="imgCall" src="photos/img_buttons/call.png">
+            <img class="img-buttons" id="imgHelp" src="photos/img_buttons/help.png">
+          </div>
+          <div class="right-main-levels">
+            <div class="right-levels-container">
+              <div id="15" class="button-level buttons-bold">15 $ 1 000 000</div>
+              <div id="14" class="button-level">14 $ 500 000</div>
+              <div id="13" class="button-level">13 $ 250 000</div>
+              <div id="12" class="button-level">12 $ 125 000</div>
+              <div id="11" class="button-level">11 $ 64 000</div>
+              <div id="10" class="button-level buttons-bold">10 $ 32 000</div>
+              <div id="9" class="button-level">9 $ 16 000</div>
+              <div id="8" class="button-level">8 $ 8 000</div>
+              <div id="7" class="button-level">7 $ 4 000</div>
+              <div id="6" class="button-level">6 $ 2 000</div>
+              <div id="5" class="button-level buttons-bold">5 $ 1 000</div>
+              <div id="4" class="button-level">4 $ 500</div>
+              <div id="3" class="button-level">3 $ 300</div>
+              <div id="2" class="button-level">2 $ 200</div>
+              <div id="1" class="button-level active-levels">1 $ 100</div>
+            </div>
+          </div>
+          <div class="right-footer">
+            <div class="right-footer-buttons">
+              <button class="rules-game right-footer-button">Правила игры</button>
+            </div>
+            <div class="right-footer-buttons">
+              <button class="about-author right-footer-button">Об авторе</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-2">
+      <div class="audio-block">
+        <audio id="audioloadedPages" src="audio/audioloadedPages.mp3"></audio>
+        <audio id="audioBackgroundMusic" src="audio/audioBackgroundMusic.mp3" loop></audio>
+        <audio id="audio50Button" src="audio/audio50Button.mp3"></audio>
+        <audio id="audioCallButton" src="audio/audioCallButton.mp3"></audio>
+        <audio id="audioHelpButton" src="audio/audioHelpButton.mp3"></audio>
+        <audio id="audioCorrectAnswer" src="audio/audioCorrectAnswer.mp3"></audio>
+        <audio id="audioWrongAnswer" src="audio/audioWrongAnswer.mp3"></audio>
+        <audio id="audioAnswerAccept" src="audio/audioAnswerAccept.mp3"></audio>
+        <audio id="audioPlayerWin" src="audio/audioPlayerWin.mp3"></audio>
+      </div>
+    </div>
+    <div class="modal-window modal-window-hide">
+      <p>Помощь зала</p>
+      <div class="modal-1">
+        <div>
+          <img id="A" src="photos/img_buttons/help strip/help_a_strip.png">
+        </div>
+        <div>
+          <img id="B" src="photos/img_buttons/help strip/help_b_strip.png">
+        </div>
+        <div>
+          <img id="C" src="photos/img_buttons/help strip/help_c_strip.png">
+        </div>
+        <div>
+          <img id="D" src="photos/img_buttons/help strip/help_d_strip.png">
+        </div>
+      </div>
+      <div class="modal-2">
+        <div>
+          <p class="p-modal">8%</p>
+          <p class="p-modal">a:</p>
+        </div>
+        <div>
+          <p class="p-modal">8%</p>
+          <p class="p-modal">b:</p>
+        </div>
+        <div>
+          <p class="p-modal">8%</p>
+          <p class="p-modal">c:</p>
+        </div>
+        <div>
+          <p class="p-modal">8%</p>
+          <p class="p-modal">d:</p>
+        </div>
+      </div>
+    </div>
+    <div class="modal-about-me modal-about-me-hide">
+      <div class="modal-about-me-container">
+        <div class="modal-about-me-header">
+          <h2>Author: Vladimir Vasyliev</h2>
+        </div>
+        <div class="modal-about-me-content">
+          <div class="content-photo">
+            <img src="photos/photoAuthor.png">
+          </div>
+          <div class="content-text">
+            <div class="content-text-header">
+              <h2>Contacts:</h2>
+            </div>
+            <div class="content-text-main">
+              <p>Instagram: <a
+                  href="https://www.instagram.com/vasyliev_vladimir/">www.instagram.com/vasyliev_vladimir/</a>
+              </p>
+              <p>Facebook: <a href="https://www.facebook.com/fit.vladimir">www.facebook.com/fit.vladimir</a></p>
+              <p>LinkedIn: <a
+                  href="https://www.linkedin.com/in/vladimir-vasyliev-38877020a">www.linkedin.com/in/vladimir-vasyliev-38877020a</a>
+              </p>
+              <p>Telegram:</p>
+              <p>Telephone: <a href="tel:+380997142794">+38 (099) 714 27 94</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-about-me-footer">
+          <p>Happy for your feedback</p>
+          <p>(C) 2022 march</p>
+        </div>
+      </div>
+    </div>
+    <div class="modal-win modal-win-hide">
+      <h1>ВЫ ПОБЕДИЛИ!!!</h1>
+      <h2>Переходите к следующим темам!</h2>
+    </div>
+    <div class="modal-lose modal-lose-hide">
+      <h1>ВЫ ПРОИГРАЛИ!!!</h1>
+      <h2>Попробуйте свои силы снова!</h2>
+    </div>
+    <div class="modal-rules modal-rules-hide">
+      <h1>ПРАВИЛА ИГРЫ</h1>
+      <h2>Они простые :)</h2>
+      <h2>Играй и получай знания!</h2>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
