@@ -129,6 +129,7 @@ const allStartStopAudio = (playFunc) => {
 }
 // начинаем игру
 const startGame = () => {
+  selectTopic.disabled = true;
   startButton.removeEventListener('click', startGame);
   if (count === 16) {
     modalWin.classList.remove('modal-win-hide');
@@ -145,7 +146,6 @@ const startGame = () => {
     }, 3000)
   } else {
     number = selectRandomQuestion();
-    console.log(number);
     changeLevels();
     allStartStopAudio(playAudioBackgroundMusic);
     if (count === 1) {
@@ -163,6 +163,7 @@ const startGame = () => {
 }
 // обнуляем count и по таймеру обновляем данные страницы
 const endGame = () => {
+  selectTopic.disabled = false;
   count = 1;
   newQuestionArray = [...questionArray];
   AudioBackgroundMusic.currentTime = 0;
@@ -352,6 +353,8 @@ const callFunction = () => {
 }
 // кнопка для показа модального окна с предположительным правильным ответом
 const helpFunction = () => {
+  disabledButtons();
+  disabledImgButtons();
   allStartStopAudio(playAudioHelpButton);
   timerHelpFunction = setTimeout(() => {
     allStartStopAudio(playAudioBackgroundMusic);
@@ -417,24 +420,38 @@ const showModal = () => {
 }
 // скрыть модальное окно, вернуть музыку на фоновую, удалить listener
 const hideModal = () => {
+  enabledImgButtons();
+  enabledButtons();
   modalWindow.classList.add('modal-window-hide');
   allStartStopAudio(playAudioBackgroundMusic);
   document.removeEventListener('click', hideModal);
 }
 // показать модальное окно автора
 const showModalAuthor = () => {
+  rulesGameButton.disabled = true;
+  disabledButtons();
+  disabledImgButtons();
   modalAboutMe.classList.remove('modal-about-me-hide');
 }
 // скрыть модальное окно автора
 const hideModalAuthor = () => {
+  rulesGameButton.disabled = false;
+  enabledImgButtons();
+  enabledButtons();
   modalAboutMe.classList.add('modal-about-me-hide');
 }
 // показать модальное окно правил игры
 const showModalRules = () => {
+  AboutMeButton.disabled = true;
+  disabledButtons();
+  disabledImgButtons();
   modalRules.classList.remove('modal-rules-hide');
 }
 // скрыть модальное окно правил игры
 const hideModalRules = () => {
+  AboutMeButton.disabled = false;
+  enabledImgButtons();
+  enabledButtons();
   modalRules.classList.add('modal-rules-hide');
 }
 // привязываем слушателей
