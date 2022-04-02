@@ -636,7 +636,7 @@ span {
 
   .answer {
     width: 85%;
-    font-size: 14px;
+    font-size: 16px;
     margin: 3px 2%;
   }
 
@@ -688,11 +688,11 @@ span {
   }
 
   .question {
-    font-size: 14px;
+    font-size: 17px;
   }
 
   .answer {
-    font-size: 12px;
+    font-size: 15px;
   }
 
   .img-buttons {
@@ -775,7 +775,7 @@ span {
   }
 
   .left-container {
-    flex: 1 1 70%;
+    flex: 1 1 44vh;
   }
 
   .sound-mute {
@@ -783,7 +783,7 @@ span {
   }
 
   .main-container {
-    height: 41vh;
+    height: 39vh;
   }
 
   .main-header {
@@ -847,7 +847,7 @@ span {
   .question {
     width: 90%;
     height: 60px;
-    font-size: 14px;
+    font-size: 17px;
   }
 
   .answer-button {
@@ -858,7 +858,7 @@ span {
     width: 86%;
     height: 8vh;
     margin: 3px 0px;
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .right-container {
@@ -941,11 +941,11 @@ span {
 /* =================================================================== */
 @media screen and (max-width: 727.98px) {
   .question {
-    font-size: 14px;
+    font-size: 17px;
   }
 
   .answer {
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .img-buttons {
@@ -1036,7 +1036,7 @@ span {
   }
 
   .question {
-    font-size: 13px;
+    font-size: 16px;
   }
 
   .answer-button {
@@ -1046,6 +1046,7 @@ span {
   .answer {
     width: 85%;
     height: 5vh;
+    font-size: 14px;
   }
 
   .img-buttons {
@@ -1098,11 +1099,11 @@ span {
   }
 
   .question {
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .answer {
-    font-size: 11px;
+    font-size: 13px;
     width: 86%;
   }
 
@@ -1150,7 +1151,7 @@ span {
 @media screen and (max-width: 479.98px) {
   .left-container {
     flex: 0 1 auto;
-    height: 69vh;
+    height: 61vh;
   }
 
   .main-container {
@@ -1171,7 +1172,7 @@ span {
   }
 
   .main-label-select {
-    font-size: 10px;
+    font-size: 9px;
   }
 
   .select {
@@ -1179,11 +1180,11 @@ span {
   }
 
   .footer-container {
-    height: 44vh;
+    height: 35vh;
   }
 
   #questionButton {
-    height: 10vh;
+    height: 9vh;
   }
 
   .question-button {
@@ -1192,30 +1193,44 @@ span {
 
   .question {
     width: 90%;
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .answer-button {
     flex: 0 1 49.5%;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
 
   .answer {
-    width: 85%;
+    width: 87vw;
+    height: 5vh;
+    margin: 0px 0px;
+    font-size: 10px;
+  }
+
+  .right-container {
+    flex: 0 1 20vh;
+  }
+
+  .right-header {
     height: 6vh;
-    margin: 1px 0px;
+    justify-content: space-evenly;
+  }
+
+  .right-footer {
+    margin-top: 0px;
   }
 
   .right-main-levels {
-    margin-top: -70px;
+    margin-top: 0px;
   }
 
   .right-levels-container {
-    margin: 30px auto;
+    margin: 0 0 0 2vw;
   }
 
   .button-level {
-    font-size: 6px;
+    font-size: 4px;
   }
 
   .img-buttons {
@@ -1225,7 +1240,7 @@ span {
 
   .active-levels {
     max-width: 95px;
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .right-footer-buttons {
@@ -1278,6 +1293,7 @@ span {
   span {
     display: inline;
     font-size: 14px;
+    margin-left: 3vw;
   }
 
   h1 {
