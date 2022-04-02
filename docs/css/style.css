@@ -2,6 +2,18 @@ body {
   border: 0;
   margin: 0;
   padding: 0;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Chrome/Safari/Opera */
+  -khtml-user-select: none;
+  /* Konqueror */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently not supported by any browser */
 }
 
 .main-wrapper-container {
@@ -393,7 +405,23 @@ span {
   height: 100%;
 }
 
-.modal-about-me-header {}
+.modal-about-me-header {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.modal-about-me-header-center {
+  flex: 1 1 auto;
+}
+
+.modal-about-me-header-right {
+  margin: 10px 18px 0 0;
+}
+
+.modal-about-me-header-left {
+  margin: 10px 0 0 16px;
+}
 
 .modal-about-me-header h2 {
   color: white;
@@ -526,6 +554,23 @@ span {
   z-index: 8;
 }
 
+.modal-rules-header {
+  margin: 10px 18px 10px 0;
+  align-self: flex-end;
+}
+
+.modal-rules-center {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-rules-footer {
+  margin: 30px;
+}
+
 .modal-rules h2 {
   color: white;
 }
@@ -550,7 +595,7 @@ span {
 }
 
 .shose {
-  background-color: rgb(89, 175, 77);
+  background-color: rgb(173, 173, 0);
   border: 2px solid rgb(214, 214, 214);
 }
 
@@ -885,6 +930,11 @@ span {
   /* ===============M=O=D=A=L===R=U=L=E=S========================= */
   .modal-rules h2 {
     font-size: 18px;
+    margin: 5px;
+  }
+
+  .modal-rules-footer {
+    margin: 25px;
   }
 }
 
@@ -1105,11 +1155,11 @@ span {
 
   .main-container {
     flex: 0 0 auto;
-    height: 25vh;
+    height: 26vh;
   }
 
   .main-header {
-    height: 7vh;
+    height: 8vh;
   }
 
   .main-content {
@@ -1192,36 +1242,36 @@ span {
   }
 
   #span-start {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   @keyframes spanchik {
     0% {
-      font-size: 13px;
+      font-size: 12px;
     }
 
     15% {
-      font-size: 14px;
+      font-size: 11px;
     }
 
     30% {
-      font-size: 15px;
+      font-size: 10px;
     }
 
     45% {
-      font-size: 16px;
+      font-size: 9px;
     }
 
     60% {
-      font-size: 15px;
+      font-size: 10px;
     }
 
     75% {
-      font-size: 14px;
+      font-size: 11px;
     }
 
     90% {
-      font-size: 13px;
+      font-size: 12px;
     }
   }
 

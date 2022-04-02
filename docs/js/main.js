@@ -20,8 +20,10 @@ const container = document.querySelector('.container');
 const modalWindow = document.querySelector('.modal-window');
 const AboutMeButton = document.querySelector('.about-author');
 const modalAboutMe = document.querySelector('.modal-about-me');
+const closeAboutMe = document.querySelector('#closeAboutMe');
 const rulesGameButton = document.querySelector('.rules-game');
 const modalRules = document.querySelector('.modal-rules');
+const closeRules = document.querySelector('#closeRules');
 const modalWin = document.querySelector('.modal-win');
 const modalLose = document.querySelector('.modal-lose');
 // список найденных констант с запуском/паузой звуков
@@ -42,6 +44,7 @@ const playAudioAnswerAccept = () => document.querySelector('#audioAnswerAccept')
 const stopAudioAnswerAccept = () => document.querySelector('#audioAnswerAccept').pause();
 const playAudioPlayerWin = () => document.querySelector('#audioPlayerWin').play();
 const stopAudioPlayerWin = () => document.querySelector('#audioPlayerWin').pause();
+const AudioBackgroundMusic = document.querySelector('#audioBackgroundMusic');
 const AudioAnswerAccept = document.querySelector('#audioAnswerAccept');
 let timerCallFunction;
 let timerHelpFunction;
@@ -77,10 +80,9 @@ const enabledButtons = () => {
 // вспомогательная функция: удаляет классы с кнопок для ответа
 const removeClassList = () => {
   let arr = Array.from(answerButtons.children);
-  arr.forEach(item => {
-    item.children[1].classList.remove('loser', 'winner', 'hide', 'help', 'shose');
-    enabledButtons();
-  })
+  arr.forEach(item => item.children[1].classList.remove('loser', 'winner', 'hide', 'help', 'shose'));
+  enabledButtons();
+  enabledImgButtons();
 }
 // вспомогательная функция: отключить/включить звук
 const offsound = () => {
@@ -127,10 +129,18 @@ const allStartStopAudio = (playFunc) => {
 }
 // начинаем игру
 const startGame = () => {
+  startButton.removeEventListener('click', startGame);
   if (count === 16) {
+    modalWin.classList.remove('modal-win-hide');
+    questionButton.innerText = '';
+    answer1Button.innerText = '';
+    answer2Button.innerText = '';
+    answer3Button.innerText = '';
+    answer4Button.innerText = '';
+    AudioBackgroundMusic.currentTime = 0;
     allStartStopAudio(playAudioPlayerWin);
     setTimeout(() => {
-      modalWin.classList.remove('modal-win-hide');
+      startButton.addEventListener('click', startGame);
       endGame();
     }, 3000)
   } else {
@@ -155,19 +165,22 @@ const startGame = () => {
 const endGame = () => {
   count = 1;
   newQuestionArray = [...questionArray];
+  AudioBackgroundMusic.currentTime = 0;
   setTimeout(() => {
+    startButton.addEventListener('click', startGame);
     if (!modalLose.classList.contains('modal-lose-hide')) modalLose.classList.add('modal-lose-hide');
     if (!modalWin.classList.contains('modal-win-hide')) modalWin.classList.add('modal-win-hide');
     changeLevels();
     removeClassList();
     unCrossImgButton();
     disabledImgButtons();
+    disabledButtons();
     if (count === 1) span.classList.remove('hide');
-    questionButton.innerText = 'Нажми на логотип, чтобы начать игру...';
-    answer1Button.innerText = 'Нажми на логотип, чтобы начать игру...';
-    answer2Button.innerText = 'Нажми на логотип, чтобы начать игру...';
-    answer3Button.innerText = 'Нажми на логотип, чтобы начать игру...';
-    answer4Button.innerText = 'Нажми на логотип, чтобы начать игру...';
+    questionButton.innerText = '';
+    answer1Button.innerText = '';
+    answer2Button.innerText = '';
+    answer3Button.innerText = '';
+    answer4Button.innerText = '';
   }, 4000)
 
 }
@@ -176,6 +189,7 @@ const checkAnswer = e => {
   if (!(startButton.disabled = true)) return;
   if (e.target.nodeName !== 'BUTTON') return;
   disabledButtons();
+  disabledImgButtons();
   allStartStopAudio(playAudioAnswerAccept);
   e.target.classList.add('shose');
   timerAnswerAcceptFunction = setTimeout(() => {
@@ -186,6 +200,7 @@ const checkAnswer = e => {
       setTimeout(() => {
         startGame();
         removeClassList();
+
       }, 3500);
     } else {
       let arr = Array.from(e.target.parentElement.parentElement.children);
@@ -266,9 +281,15 @@ const disabledImgButtons = () => {
   buttonsHelper.children[2].disabled = true;
 }
 const enabledImgButtons = () => {
-  buttonsHelper.children[0].disabled = false;
-  buttonsHelper.children[1].disabled = false;
-  buttonsHelper.children[2].disabled = false;
+  if (buttonsHelper.children[0].src.includes('photos/img_buttons/divide.png')) {
+    buttonsHelper.children[0].disabled = false;
+  }
+  if (buttonsHelper.children[1].src.includes('photos/img_buttons/call.png')) {
+    buttonsHelper.children[1].disabled = false;
+  }
+  if (buttonsHelper.children[2].src.includes('photos/img_buttons/help.png')) {
+    buttonsHelper.children[2].disabled = false;
+  }
 }
 // меняем img на зачеркнутые и ставим disabled
 const crossImgButton = (el) => {
@@ -331,7 +352,6 @@ const callFunction = () => {
 }
 // кнопка для показа модального окна с предположительным правильным ответом
 const helpFunction = () => {
-  // modalWindow();
   allStartStopAudio(playAudioHelpButton);
   timerHelpFunction = setTimeout(() => {
     allStartStopAudio(playAudioBackgroundMusic);
@@ -344,7 +364,7 @@ const helpFunction = () => {
   let newArr = [];
   let arr = Array.from(answerButtons.children);
   arr.forEach(item => {
-    if (item.children[1].innerText === answerSelect['question' + count]) {
+    if (item.children[1].innerText === answerSelect['question' + number]) {
       let positiveAnswer = customRandom(73, 80);
       res = (num - positiveAnswer) / 3;
       num -= positiveAnswer;
@@ -401,17 +421,27 @@ const hideModal = () => {
   allStartStopAudio(playAudioBackgroundMusic);
   document.removeEventListener('click', hideModal);
 }
-// показать/скрыть модальное окно автора
+// показать модальное окно автора
 const showModalAuthor = () => {
-  modalAboutMe.classList.toggle('modal-about-me-hide');
+  modalAboutMe.classList.remove('modal-about-me-hide');
 }
-// показать/скрыть модальное окно правил игры
+// скрыть модальное окно автора
+const hideModalAuthor = () => {
+  modalAboutMe.classList.add('modal-about-me-hide');
+}
+// показать модальное окно правил игры
 const showModalRules = () => {
-  modalRules.classList.toggle('modal-rules-hide');
+  modalRules.classList.remove('modal-rules-hide');
+}
+// скрыть модальное окно правил игры
+const hideModalRules = () => {
+  modalRules.classList.add('modal-rules-hide');
 }
 // привязываем слушателей
 AboutMeButton.addEventListener('click', showModalAuthor);
+closeAboutMe.addEventListener('click', hideModalAuthor);
 rulesGameButton.addEventListener('click', showModalRules);
+closeRules.addEventListener('click', hideModalRules);
 startButton.addEventListener('click', startGame);
 answerButtons.addEventListener('click', checkAnswer);
 selectTopic.addEventListener('change', onSelectQuestion);
