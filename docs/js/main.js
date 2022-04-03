@@ -436,8 +436,10 @@ const showModalAuthor = () => {
 // скрыть модальное окно автора
 const hideModalAuthor = () => {
   rulesGameButton.disabled = false;
-  enabledImgButtons();
-  enabledButtons();
+  if (selectTopic.disabled) {
+    enabledImgButtons();
+    enabledButtons();
+  }
   modalAboutMe.classList.add('modal-about-me-hide');
 }
 // показать модальное окно правил игры
@@ -450,8 +452,10 @@ const showModalRules = () => {
 // скрыть модальное окно правил игры
 const hideModalRules = () => {
   AboutMeButton.disabled = false;
-  enabledImgButtons();
-  enabledButtons();
+  if (selectTopic.disabled) {
+    enabledImgButtons();
+    enabledButtons();
+  }
   modalRules.classList.add('modal-rules-hide');
 }
 // привязываем слушателей
@@ -467,9 +471,3 @@ document.addEventListener("click", playAudioloadedPages);
 soundButton.addEventListener('click', offsound);
 disabledImgButtons();
 disabledButtons();
-
-
-// заполнить данные вопросами и ответами
-// еще нужно добавить таймер при ответе и вывод его на страницу с обновлением тикания
-// реализовать переход на другие языки а пока, временно поле скрыть
-//
